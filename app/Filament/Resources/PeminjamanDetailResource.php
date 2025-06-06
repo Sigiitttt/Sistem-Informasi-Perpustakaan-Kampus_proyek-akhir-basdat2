@@ -16,6 +16,9 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
+
+use function Laravel\Prompts\select;
 
 class PeminjamanDetailResource extends Resource
 {
@@ -40,6 +43,10 @@ class PeminjamanDetailResource extends Resource
                 ->preload()
                 ->disabled() // Dibuat disabled agar tidak bisa diubah
                 ->required(),
+
+            select::make('peminjamanHeader.user.nim')
+                ->label('NIM Peminjam')
+                ->searchable(),
 
             // Field Buku (hanya bisa dilihat, tidak bisa diubah)
             Select::make('buku_id')
@@ -84,14 +91,29 @@ class PeminjamanDetailResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('peminjamanHeader.user.name')->label('Peminjam')->searchable(),
-                Tables\Columns\TextColumn::make('buku.judul')->label('Buku')->searchable(),
-                Tables\Columns\TextColumn::make('status_item')->badge(),
-                Tables\Columns\TextColumn::make('tanggal_harus_kembali_item')->date()->sortable(),
-            ])
-            ->filters([
-                //
+        ->columns([
+            TextColumn::make('peminjamanHeader.user.name')
+                ->label('Peminjam')
+                ->searchable(),
+
+            // --- TAMBAHKAN KOLOM BARU DI SINI ---
+            TextColumn::make('peminjamanHeader.user.nim')
+                ->label('NIM Peminjam')
+                ->searchable(), // Agar bisa dicari berdasarkan NIM
+            // ------------------------------------
+
+            TextColumn::make('buku.judul')
+                ->label('Buku')
+                ->searchable()
+                ->wrap(),
+            
+            Tables\Columns\BadgeColumn::make('status_item') // Menggunakan BadgeColumn agar lebih menarik
+                ->label('Status Item'),
+            
+            TextColumn::make('tanggal_harus_kembali_item')
+                ->label('Tgl Harus Kembali')
+                ->date()
+                ->sortable(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
