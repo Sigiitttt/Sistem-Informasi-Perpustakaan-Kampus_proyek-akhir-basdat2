@@ -7,55 +7,35 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+Sistem Informasi Perpustakaan Kampus
+Sebuah aplikasi web berbasis Laravel untuk manajemen perpustakaan di lingkungan kampus. Proyek ini dibangun sebagai portofolio dan demonstrasi implementasi full-stack menggunakan TALL Stack dengan Filament untuk panel admin dan Laravel Blade untuk antarmuka anggota.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Deskripsi Proyek
+Aplikasi ini dirancang untuk memfasilitasi operasional perpustakaan mulai dari manajemen katalog buku, pengelolaan anggota, hingga proses sirkulasi (peminjaman dan pengembalian). Terdapat dua antarmuka utama: panel admin yang komprehensif untuk staf perpustakaan, dan portal anggota yang intuitif untuk mahasiswa dan dosen.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Fitur Utama
+1. Panel Admin (Dikelola oleh Filament)
+Bagian ini didesain untuk staf perpustakaan atau administrator, memungkinkan mereka untuk mengelola operasional perpustakaan secara efisien.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dashboard Admin: Ringkasan umum aktivitas perpustakaan.
+Manajemen Buku (CRUD): Tambah, lihat, edit, dan hapus data buku beserta detailnya (ISBN, stok, kategori, dll).
+Manajemen Kategori & Rak: Mengelompokkan buku berdasarkan kategori dan lokasi fisiknya.
+Manajemen Anggota (CRUD): Mengelola data mahasiswa dan dosen yang terdaftar sebagai anggota.
+Manajemen Peminjaman: Sistem untuk mencatat peminjaman, melihat daftar buku yang sedang dipinjam, dan melakukan proses pengembalian.
+Perhitungan Denda Otomatis: Sistem akan menghitung denda secara otomatis jika terjadi keterlambatan saat proses pengembalian.
+Laporan Sederhana: Halaman khusus untuk melihat rekap data peminjaman, buku terpopuler, dan anggota teraktif berdasarkan periode waktu.
+2. Antarmuka Anggota (Frontend dengan Laravel Blade)
+Bagian ini dirancang untuk mahasiswa dan dosen sebagai pengguna perpustakaan.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Autentikasi Pengguna: Sistem registrasi dan login yang aman untuk anggota.
+Dashboard Anggota: Menampilkan ringkasan status peminjaman saat ini dan notifikasi penting (misal: buku akan jatuh tempo).
+Katalog Buku: Menampilkan daftar lengkap buku yang tersedia dengan fitur pencarian dan paginasi.
+Halaman Detail Buku: Menampilkan informasi lengkap sebuah buku, termasuk sinopsis, detail penerbitan, dan status ketersediaan.
+Fungsi Pinjam Mandiri: Anggota dapat melakukan aksi peminjaman buku langsung dari halaman katalog atau detail buku.
+Riwayat Peminjaman: Halaman untuk melihat semua buku yang pernah dan sedang dipinjam oleh anggota.
+Teknologi yang Digunakan
+Backend: PHP 8.3, Laravel 12
+Admin Panel: Filament 3.x
+Frontend: Laravel Blade, Tailwind CSS, Vite
+Autentikasi: Laravel Breeze
+Database: MySQL
